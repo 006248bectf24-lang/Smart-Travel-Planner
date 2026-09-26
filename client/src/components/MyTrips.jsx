@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://smart-travel-planner-ruddy.vercel.app";
+
 function MyTrips() {
   const [trips, setTrips] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,7 +36,7 @@ function MyTrips() {
       }
 
       const response = await axios.get(
-        "http://localhost:5000/api/trips",
+        `${API_URL}/api/trips`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -158,7 +160,7 @@ function MyTrips() {
         localStorage.getItem("token");
 
       const response = await axios.post(
-        `http://localhost:5000/api/trips/${selectedTrip._id}/expenses`,
+        `${API_URL}/api/trips/${selectedTrip._id}/expenses`,
         {
           category: expenseCategory,
           amount: Number(expenseAmount),
@@ -212,7 +214,7 @@ function MyTrips() {
         localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:5000/api/trips/${selectedTrip._id}/expenses/${expenseId}`,
+        `${API_URL}/api/trips/${selectedTrip._id}/expenses/${expenseId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -250,7 +252,7 @@ function MyTrips() {
         localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/trips/${id}`,
+        `${API_URL}/api/trips/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
