@@ -24,7 +24,7 @@ function AIChat() {
         if (!token) return;
 
         const response = await axios.get(
-          "http://localhost:5000/api/trips",
+          "https://smart-travel-planner-ruddy.vercel.app/api/trips",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ function AIChat() {
         : null;
 
       const response = await axios.post(
-        "http://localhost:5000/api/chat",
+        "https://smart-travel-planner-ruddy.vercel.app/api/chat",
         {
           message: userMessage,
           tripContext: tripContext,
