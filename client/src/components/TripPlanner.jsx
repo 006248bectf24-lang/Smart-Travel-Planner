@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://smart-travel-planner-ruddy.vercel.app";
+
 // "1lakh", "1 crore", "10 thousand", "50k", "10000" jaise text ko number mein badalta hai
 const parseBudgetInput = (value) => {
   if (!value) return 0;
@@ -178,7 +180,7 @@ function TripPlanner() {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/trips",
+        `${API_URL}/api/trips`,
         {
           destination,
           startDate,
@@ -251,7 +253,7 @@ function TripPlanner() {
       }
 
       const response = await axios.post(
-        `http://localhost:5000/api/trips/${tripId}/itinerary`,
+        `${API_URL}/api/trips/${tripId}/itinerary`,
         {},
         {
           headers: {
