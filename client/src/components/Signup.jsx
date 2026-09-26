@@ -17,7 +17,7 @@ function Signup({ onSignupSuccess, onGoToLogin }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://smart-travel-planner-ruddy.vercel.app/api/auth/signup",
         {
           name,
           email,
